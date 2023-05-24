@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d69e08ac1d88428996098a3f1ae9c201" Name="Diagram1">
+        <EntityTypeShape EntityType="pratcya_uaModel.logpass" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="pratcya_uaModel.personalWorker" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector ManuallyRouted="false" Association="pratcya_uaModel.logpass_personalWorker" />
+        <EntityTypeShape EntityType="pratcya_uaModel.vacancy" Width="1.5" PointX="6" PointY="0.875" />
+        <AssociationConnector Association="pratcya_uaModel.vacancy_logpass" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

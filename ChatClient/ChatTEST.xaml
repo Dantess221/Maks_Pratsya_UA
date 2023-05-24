@@ -1,0 +1,81 @@
+﻿<Window x:Class="ChatClient.Chat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatClient"
+        mc:Ignorable="d" Height="600" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Rectangle Fill="#FF65656E" 
+                   HorizontalAlignment="Left" 
+                   Height="569" 
+                   Stroke="#FF65656E" 
+                   VerticalAlignment="Top" 
+                   Width="264"/>
+        <TextBox x:Name="tbUserNameChat"
+                 HorizontalAlignment="Left"
+                 Height="44" Margin="407,59,0,0"
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top"
+                 Width="360" FontSize="20"
+                 TextAlignment="Center"/>
+        <ListBox x:Name="lbChat"
+                 HorizontalAlignment="Left" 
+                 Height="346" Margin="282,113,0,0"
+                 VerticalAlignment="Top"
+                 Width="485"/>
+        <TextBox x:Name="tbMsg"
+                 HorizontalAlignment="Left" 
+                 Height="88" Margin="282,464,0,0"
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top"
+                 Width="667" FontSize="20" 
+                 KeyDown="tbMsg_KeyDown"/>
+        <TextBlock HorizontalAlignment="Left"
+                   Height="44" Margin="282,10,0,0"
+                   TextWrapping="Wrap"
+                   Text="Чат"
+                   VerticalAlignment="Top"
+                   Width="50" FontSize="25"/>
+        <Button x:Name ="bConnDisc"
+                Content="Connect"
+                HorizontalAlignment="Left" 
+                Height="44" Margin="282,59,0,0"
+                VerticalAlignment="Top" 
+                Width="120"
+                RenderTransformOrigin="-2.005,1.549"
+                Click="bConnDisc_Click"/>
+        <Button 
+            x:Name="bt_PersonalWorker"
+            Content="Особистий кабінет" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,117,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_PersonalWorker_Click"/>
+        <Button 
+            x:Name="bt_SearchVacancies"
+            Content="Пошук вакансій" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,157,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_SearchVacancies_Click"/>
+        <Button 
+            x:Name="bt_DialoguesWorker"
+            Content="Мої діалоги" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,197,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_DialoguesWorker_Click"/>
+        <Label Content="Меню"
+               HorizontalAlignment="Left" 
+               Height="38" Margin="0,74,0,0" 
+               VerticalAlignment="Top" 
+               Width="126" FontSize="26"/>
+        <Label Content="PRATCYA.UA" 
+               HorizontalAlignment="Left" 
+               Height="47" Margin="0,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="264" FontSize="35"/>
+
+    </Grid>
+</Window>

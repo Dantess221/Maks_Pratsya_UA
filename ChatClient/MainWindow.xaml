@@ -1,0 +1,96 @@
+﻿<Window x:Class="ChatClient.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatClient"
+        mc:Ignorable="d" Height="600" Width="800" Loaded="Window_Loaded" Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="84.5"/>
+            <ColumnDefinition Width="715.5"/>
+        </Grid.ColumnDefinitions>
+        <Viewbox Margin="33,266,410,21" Stretch="Fill" Grid.ColumnSpan="2">
+            <Grid Height="259" Width="309">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="309"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="259" Stroke="Black" VerticalAlignment="Bottom" Width="309" Margin="0,-43,0,43"/>
+                <Button x:Name ="bVhid" 
+                        Content="Вхід" 
+                        HorizontalAlignment="Left" 
+                        Height="28" Margin="68,160,0,0"
+                        VerticalAlignment="Top" 
+                        Width="175" 
+                        Click="btVhid"/>
+                <TextBox x:Name ="tbLoginMW"
+                         HorizontalAlignment="Left" 
+                         Height="28" Margin="24,42,0,0"
+                         TextWrapping="Wrap"
+                         VerticalAlignment="Top"
+                         Width="265"/>
+                <PasswordBox 
+                    x:Name="tbPassMW" 
+                         HorizontalAlignment="Right"
+                         Height="28" Margin="0,107,20,0"
+                         VerticalAlignment="Top"
+                         Width="265"/>
+                <TextBlock HorizontalAlignment="Left" 
+                           Height="32" Margin="24,-22,0,0"
+                           TextWrapping="Wrap" 
+                           Text="Увійти"
+                           VerticalAlignment="Top" 
+                           Width="162" FontSize="20"/>
+                <TextBlock HorizontalAlignment="Left"
+                           Height="27" Margin="24,15,0,0" 
+                           TextWrapping="Wrap" 
+                           Text="Логін" 
+                           VerticalAlignment="Top"
+                           Width="122"/>
+                <TextBlock HorizontalAlignment="Left"
+                           Height="27" Margin="24,80,0,0" 
+                           TextWrapping="Wrap"
+                           Text="Пароль" 
+                           VerticalAlignment="Top"
+                           Width="71"/>
+                <Rectangle Fill="#FFF4F4F5" Height="53" Margin="0,-201,0,0" Stroke="Black" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
+
+            </Grid>
+        </Viewbox>
+        <TextBox x:Name="tbSearchMainW" 
+                 HorizontalAlignment="Left"
+                 Height="25" Margin="369.5,308,0,0" 
+                 TextWrapping="Wrap"
+                 VerticalAlignment="Top" 
+                 Width="330" Grid.Column="1"/>
+        <Button x:Name ="btSearchMainW"
+                Content="Знайти"
+                HorizontalAlignment="Left"
+                Height="31" Margin="369.5,353,0,0" 
+                VerticalAlignment="Top"
+                Width="152" Grid.Column="1"/>
+        <Button x:Name="btEmployerMainW"
+                Content="Я - роботодавець"
+                HorizontalAlignment="Left"
+                Height="56" Margin="369.5,459,0,0" 
+                VerticalAlignment="Top" 
+                Width="260" FontSize="20" Grid.Column="1"/>
+        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="173" Margin="369.5,28,0,0" Stroke="Black" VerticalAlignment="Top" Width="328" Grid.Column="1"/>
+        <Button
+            x:Name="bt_RegistrationMW"
+            Content="Зареєструватись" 
+            HorizontalAlignment="Left" 
+            Height="35" Margin="167.5,237,0,0"
+            VerticalAlignment="Top" 
+            Width="114" Click="bt_RegistrationMW_Click" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" 
+               Height="100" 
+               VerticalAlignment="Top" 
+               Width="100" Margin="95.5,74,0,0" Grid.Column="1"
+               />
+
+    </Grid>
+</Window>

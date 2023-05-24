@@ -1,0 +1,83 @@
+﻿<Window x:Class="ChatClient.Dialogues"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChatClient"
+        mc:Ignorable="d" Height="600" Width="800" 
+        Loaded="Window_Loaded" 
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="600"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="800"/>
+        </Grid.ColumnDefinitions>
+        <Rectangle Fill="#FF65656E" 
+                   HorizontalAlignment="Left" 
+                   Height="569" 
+                   Stroke="#FF65656E" 
+                   VerticalAlignment="Top" 
+                   Width="264"/>
+        
+        <Button 
+            x:Name="bt_PersonalWorker"
+            Content="Особистий кабінет" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,117,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_PersonalWorker_Click"/>
+        <Button 
+            x:Name="bt_SearchVacancies"
+            Content="Пошук вакансій" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,157,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_SearchVacancies_Click"/>
+        <Button 
+            x:Name="bt_DialoguesWorker"
+            Content="Мої діалоги" 
+            HorizontalAlignment="Left" 
+            Height="40" Margin="0,197,0,0" 
+            VerticalAlignment="Top" 
+            Width="263" Click="bt_DialoguesWorker_Click"/>
+        <Button
+            x:Name="bt_GoChatWorker"
+            Content="Перейти до чату" 
+            HorizontalAlignment="Left"
+            Height="35" Margin="295,135,0,0" 
+            VerticalAlignment="Top" 
+            Width="110" Click="bt_GoChatWorker_Click"/>
+        <TextBox
+            x:Name="tb_UserNameChatWorker"
+            HorizontalAlignment="Left" 
+            Height="35" Margin="425,135,0,0" 
+            TextWrapping="Wrap" 
+            Text="" 
+            VerticalAlignment="Top" 
+            Width="340" FontSize="20"/>
+        <Label Content="Меню"
+               HorizontalAlignment="Left" 
+               Height="38" Margin="0,74,0,0" 
+               VerticalAlignment="Top" 
+               Width="126" FontSize="26"/>
+        <Label Content="PRATCYA.UA" 
+               HorizontalAlignment="Left" 
+               Height="47" Margin="0,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="264" FontSize="35"/>
+        <Label Content="Мої діалоги"
+               HorizontalAlignment="Left" 
+               Height="55" Margin="295,10,0,0" 
+               VerticalAlignment="Top" 
+               Width="200" FontSize="35"/>
+        <Rectangle Fill="AliceBlue" 
+                   HorizontalAlignment="Left" 
+                   Height="70" Margin="646,10,0,0" 
+                   Stroke="Black" 
+                   VerticalAlignment="Top" 
+                   Width="100"/>
+
+    </Grid>
+</Window>

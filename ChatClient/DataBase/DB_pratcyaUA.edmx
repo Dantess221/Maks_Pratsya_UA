@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Хранилище pratcya_uaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="logpass">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" />
+        </EntityType>
+        <EntityType Name="personalWorker">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="50" />
+          <Property Name="DataOfBirthWorker" Type="nvarchar" MaxLength="50" />
+          <Property Name="ActivityWorker" Type="nvarchar" MaxLength="50" />
+          <Property Name="EducationWorker" Type="nvarchar" MaxLength="50" />
+          <Property Name="Company" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="vacancy">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="position" Type="nvarchar(max)" />
+          <Property Name="description" Type="nvarchar(max)" />
+          <Property Name="salary" Type="nvarchar(max)" />
+          <Property Name="city" Type="nvarchar(max)" />
+          <Property Name="employment" Type="nvarchar(max)" />
+          <Property Name="ID_vacancy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <Association Name="logpass_personalWorker">
+          <End Role="personalWorker" Type="Self.personalWorker" Multiplicity="1" />
+          <End Role="logpass" Type="Self.logpass" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="personalWorker">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="logpass">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="vacancy_logpass">
+          <End Role="logpass" Type="Self.logpass" Multiplicity="1" />
+          <End Role="vacancy" Type="Self.vacancy" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="logpass">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="vacancy">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище pratcya_uaModelContainer">
+          <EntitySet Name="logpass" EntityType="Self.logpass" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personalWorker" EntityType="Self.personalWorker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vacancy" EntityType="Self.vacancy" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="logpass_personalWorker" Association="Self.logpass_personalWorker">
+            <End Role="personalWorker" EntitySet="personalWorker" />
+            <End Role="logpass" EntitySet="logpass" />
+          </AssociationSet>
+          <AssociationSet Name="vacancy_logpass" Association="Self.vacancy_logpass">
+            <End Role="logpass" EntitySet="logpass" />
+            <End Role="vacancy" EntitySet="vacancy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="pratcya_uaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="logpass">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="personalWorker" Relationship="Self.logpass_personalWorker" FromRole="logpass" ToRole="personalWorker" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="vacancy" Relationship="pratcya_uaModel.vacancy_logpass" FromRole="logpass" ToRole="vacancy" />
+          <Property Name="RoleID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="personalWorker">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="logpass" Relationship="Self.logpass_personalWorker" FromRole="personalWorker" ToRole="logpass" />
+          <Property Name="DataOfBirthWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ActivityWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EducationWorker" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="logpass_personalWorker">
+          <End Type="Self.personalWorker" Multiplicity="1" Role="personalWorker" />
+          <End Type="Self.logpass" Multiplicity="0..1" Role="logpass" />
+          <ReferentialConstraint>
+            <Principal Role="personalWorker">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="logpass">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="pratcyaUAEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="logpass" EntityType="Self.logpass" />
+          <EntitySet Name="personalWorker" EntityType="Self.personalWorker" />
+          <AssociationSet Name="logpass_personalWorker" Association="Self.logpass_personalWorker">
+            <End EntitySet="personalWorker" Role="personalWorker" />
+            <End EntitySet="logpass" Role="logpass" />
+          </AssociationSet>
+          <EntitySet Name="vacancy" EntityType="pratcya_uaModel.vacancy" />
+          <AssociationSet Name="vacancy_logpass" Association="pratcya_uaModel.vacancy_logpass">
+            <End Role="logpass" EntitySet="logpass" />
+            <End Role="vacancy" EntitySet="vacancy" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="vacancy">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="position" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="salary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="employment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="logpass" Relationship="pratcya_uaModel.vacancy_logpass" FromRole="vacancy" ToRole="logpass" />
+          <Property Name="ID_vacancy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <Association Name="vacancy_logpass">
+          <End Type="pratcya_uaModel.logpass" Role="logpass" Multiplicity="1" />
+          <End Type="pratcya_uaModel.vacancy" Role="vacancy" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="logpass">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="vacancy">
+              <PropertyRef Name="Login" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище pratcya_uaModelContainer" CdmEntityContainer="pratcyaUAEntities1">
+          <EntitySetMapping Name="logpass">
+            <EntityTypeMapping TypeName="pratcya_uaModel.logpass">
+              <MappingFragment StoreEntitySet="logpass">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="personalWorker">
+            <EntityTypeMapping TypeName="pratcya_uaModel.personalWorker">
+              <MappingFragment StoreEntitySet="personalWorker">
+                <ScalarProperty Name="Company" ColumnName="Company" />
+                <ScalarProperty Name="EducationWorker" ColumnName="EducationWorker" />
+                <ScalarProperty Name="ActivityWorker" ColumnName="ActivityWorker" />
+                <ScalarProperty Name="DataOfBirthWorker" ColumnName="DataOfBirthWorker" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacancy">
+            <EntityTypeMapping TypeName="pratcya_uaModel.vacancy">
+              <MappingFragment StoreEntitySet="vacancy">
+                <ScalarProperty Name="ID_vacancy" ColumnName="ID_vacancy" />
+                <ScalarProperty Name="employment" ColumnName="employment" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="salary" ColumnName="salary" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
